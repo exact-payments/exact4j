@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TransactionResult>
+  <Authorization_Num>ET3434</Authorization_Num>
+  <AVS></AVS>
+  <Bank_Message>APPROVED</Bank_Message>
+  <Bank_Resp_Code>000</Bank_Resp_Code>
+  <Bank_Resp_Code_2></Bank_Resp_Code_2>
+  <CardHoldersName>Simon Brown</CardHoldersName>
+  <Card_Number>4111111111111111</Card_Number>
+  <CAVV></CAVV>
+  <CAVV_Algorithm></CAVV_Algorithm>
+  <CAVV_Response>0</CAVV_Response>
+  <Client_Email></Client_Email>
+  <Client_IP></Client_IP>
+  <CTR></CTR>
+  <Customer_Ref></Customer_Ref>
+  <CVD_Presence_Ind>0</CVD_Presence_Ind>
+  <CVV2></CVV2>
+  <DollarAmount>10.13</DollarAmount>
+  <Ecommerce_Flag>0</Ecommerce_Flag>
+  <Error_Description></Error_Description>
+  <Error_Number></Error_Number>
+  <ExactID>AD0008-01</ExactID>
+  <EXact_Message>Transaction Normal</EXact_Message>
+  <EXact_Resp_Code>00</EXact_Resp_Code>
+  <Expiry_Date>1210</Expiry_Date>
+  <Language></Language>
+  <LogonMessage></LogonMessage>
+  <MerchantAddress>4567 8th ave SE.</MerchantAddress>
+  <MerchantCity>Calgary</MerchantCity>
+  <MerchantCountry>United States</MerchantCountry>
+  <MerchantName>Paymentech Goods Buy and Sell(Calgary) 5300003</MerchantName>
+  <MerchantPostal>V6B 2K4</MerchantPostal>
+  <MerchantProvince>Alabama</MerchantProvince>
+  <MerchantURL></MerchantURL>
+  <PAN></PAN>
+  <Password></Password>
+  <Reference_3></Reference_3>
+  <Reference_No>987987</Reference_No>
+  <Retrieval_Ref_No>07203434</Retrieval_Ref_No>
+  <Secure_AuthRequired></Secure_AuthRequired>
+  <Secure_AuthResult></Secure_AuthResult>
+  <SequenceNo>258</SequenceNo>
+  <SurchargeAmount></SurchargeAmount>
+  <Tax1Amount></Tax1Amount>
+  <Tax1Number></Tax1Number>
+  <Tax2Amount></Tax2Amount>
+  <Tax2Number></Tax2Number>
+  <Track1></Track1>
+  <Track2></Track2>
+  <Transaction_Approved>true</Transaction_Approved>
+  <Transaction_Error></Transaction_Error>
+  <Transaction_Tag>2516</Transaction_Tag>
+  <Transaction_Type>00</Transaction_Type>
+  <User_Name></User_Name>
+  <VerificationStr1></VerificationStr1>
+  <VerificationStr2></VerificationStr2>
+  <XID></XID>
+  <ZipCode></ZipCode>
+</TransactionResult>

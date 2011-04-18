@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<project name="Exact4J" default="dist" basedir=".">
+  <description>Exact4J Client Library build file.</description>
+  <property name="build.dir" value="build"/>
+  <property name="dist.dir" value="dist"/>
+  <property name="src.dir" value="src"/>
+  <property name="test.dir" value="test"/>
+  <property name="certs.dir" value="certs"/>
+  <property name="lib.dir" value="lib"/>
+
+  <path id="test.classpath">
+    <pathelement location="${build.dir}/testclasses"/>
+    <pathelement location="${build.dir}/classes"/>
+    <pathelement location="${lib.dir}/junit.jar"/>
+  </path>
+
+  <target name="init">
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${build.dir}/classes"/>
+    <mkdir dir="${build.dir}/testclasses"/>
+    <mkdir dir="${dist.dir}"/>
+  </target>
+
+  <target name="compile" depends="init"
+        description="compile the source " >
+    <!-- Compile the java code from ${src.dir} into ${build.dir}/classes -->
+    <javac srcdir="${src.dir}" destdir="${build.dir}/classes"/>
+  </target>
+
+  <target name="dist" depends="compile"
+        description="generate the distribution" >
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist.dir}"/>
+
+    <!-- Put everything in ${build.dir} into the exact4j.jar file -->
+    <jar destfile="${dist.dir}/exact4j.jar">
+    <fileset dir="${build.dir}/classes" includes="**/*.class"/>
+    <fileset dir="${certs.dir}" includes="*.cer"/>
+  </jar>
+  </target>
+
+  <target name="test" description="compile and run tests" depends="compile">
+    <!-- compile the tests -->
+    <javac srcdir="${test.dir}" destdir="${build.dir}/testclasses" classpathref="test.classpath"/>
+
+    <junit printsummary="yes" haltonfailure="false">
+      <classpath>
+      	<pathelement location="${build.dir}/testclasses"/>
+      	<pathelement location="${build.dir}/classes"/>
+      	<pathelement location="${lib.dir}/junit.jar"/>
+      	<pathelement path="${java.class.path}"/>
+      </classpath>
+
+      <formatter type="plain" usefile="false"/>
+      <batchtest fork="yes">
+        <fileset dir="${test.dir}" casesensitive="no">
+          <include name="**/*Test*.java"/>
+          <exclude name="**/TestUtils.java"/>
+          <exclude name="**/BaseTestCase.java"/>
+        </fileset>
+      </batchtest>
+
+    </junit>
+  </target>
+
+  <target name="clean" description="clean up" >
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+  </target>
+
+</project>

@@ -1,0 +1,68 @@
+Version 2.0
+-------------
+ - Added support for specifying a custom SSLSocketFactory for use with a given Transporter, thereby allowing you
+   to ensure a particular client certificate is included as part of the SSL handshake.
+ - Fixed a couple of response decoding bugs.
+
+
+Version 1.9
+-------------
+- Added support for specifying authorization_num & reference_no in CR requests, to obtain decrypted CC numbers.
+
+
+Version 1.8
+-------------
+ - Added support for TaggedUpdate and ReferencedVoid transactions.
+ - Reworked SSL certificate verification to allow for longer cert chains.
+
+
+Version 1.7
+-------------
+ - Updated with new SSL certificates for https://api.e-xact.com
+
+
+Version 1.6
+-------------
+ - Added support for Batch Query and Batch Close transactions.
+
+
+Version 1.5.1
+-------------
+ - Reinstated Tagged Void support.
+
+
+Version 1.5
+-----------
+ - Added AVS class to handle correct encoding of AVS data.
+ - Removed unsupported TaggedVoid transaction type
+ - Fixed incorrect JSON encoding of Track1 and Track2 values
+ - Fixed validation for IDebitPurchase and IDebitRefund requests
+ - Corrected typo: ECommerceFlag.NonAuthenticatied3dSecure becomes ECommerceFlag.NonAuthenticated3dSecure
+ - Fixed incorrect enum value for Language.English
+ - Added comprehensive test suite
+
+
+Version 1.4
+-----------
+ - Fixed incorrect encoding of enumerations with JSON requests
+ - Fixed typo in ECommerceFlag: SingleMot0 => SingleMoto
+ - Updated to cope with recent change to web service where User_Name may not be present in XML responses
+
+
+Version 1.3
+-----------
+ - added ReadOnlyRequest class to allow successful decoding of request attributes contained in a
+   response, even if the attributes' values would normally be considered invalid when sending a
+   request
+ - ensured all Coders refuse to encode a ReadOnlyRequest, thereby ensuring that proper validation
+   takes place when Requests are being submitted
+
+
+Version 1.2
+-----------
+ - deprecated validate() method on Request. Use isValid() instead.
+ - ensured isValid() is called on all Request's before transmission.
+ - ensured that receiving invalid card numbers, or expiry dates, in responses will not prevent
+   parsing of response
+ - fixed bug in parsing of SOAP Faults
+ - fixed bug in parsing of addresses in response

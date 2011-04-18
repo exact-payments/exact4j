@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+NOTE: This is a fabricated response, designed so that it has values set for EVERY attribute!
+Its sole purpose is to allow us to test that all values are correctly decoded. The values are
+complete nonsense and do not bear any relation to corresponding values which would be received
+in a real response from the web service.
+-->
+<TransactionResult>
+  <Authorization_Num>ET3434</Authorization_Num>
+  <AVS>Z</AVS>
+  <Bank_Message>APPROVED</Bank_Message>
+  <Bank_Resp_Code>000</Bank_Resp_Code>
+  <Bank_Resp_Code_2>12</Bank_Resp_Code_2>
+  <CardHoldersName>Simon Brown</CardHoldersName>
+  <Card_Number>4111111111111111</Card_Number>
+  <CAVV>123</CAVV>
+  <CAVV_Algorithm>8</CAVV_Algorithm>
+  <CAVV_Response>0</CAVV_Response>
+  <Client_Email>simon@example.com</Client_Email>
+  <Client_IP>127.0.0.1</Client_IP>
+  <CTR>This is
+a CTR</CTR>
+  <Customer_Ref>REF-123</Customer_Ref>
+  <CVD_Presence_Ind>0</CVD_Presence_Ind>
+  <CVV2>U</CVV2>
+  <DollarAmount>10.13</DollarAmount>
+  <Ecommerce_Flag>4</Ecommerce_Flag>
+  <Error_Description>Something</Error_Description>
+  <Error_Number>650</Error_Number>
+  <ExactID>AD0009-01</ExactID>
+  <EXact_Message>Transaction Normal</EXact_Message>
+  <EXact_Resp_Code>00</EXact_Resp_Code>
+  <Expiry_Date>1210</Expiry_Date>
+  <Language>4</Language>
+  <LogonMessage>Processed by E-Xact</LogonMessage>
+  <MerchantAddress>4567 8th ave SE.</MerchantAddress>
+  <MerchantCity>Calgary</MerchantCity>
+  <MerchantCountry>United States</MerchantCountry>
+  <MerchantName>Paymentech Goods Buy and Sell(Calgary) 5300003</MerchantName>
+  <MerchantPostal>V6B 2K4</MerchantPostal>
+  <MerchantProvince>Alabama</MerchantProvince>
+  <MerchantURL>http://somewhere.com/somehow/</MerchantURL>
+  <PAN>12345678900987654321</PAN>
+  <Password>passw0rd</Password>
+  <Reference_3>REF-456</Reference_3>
+  <Reference_No>987987</Reference_No>
+  <Retrieval_Ref_No>07203434</Retrieval_Ref_No>
+  <Secure_AuthRequired>1</Secure_AuthRequired>
+  <Secure_AuthResult>9</Secure_AuthResult>
+  <SequenceNo>258</SequenceNo>
+  <SurchargeAmount>11.12</SurchargeAmount>
+  <Tax1Amount>23.23</Tax1Amount>
+  <Tax1Number>987654</Tax1Number>
+  <Tax2Amount>34.34</Tax2Amount>
+  <Tax2Number>123456</Tax2Number>
+  <Track1>%B4111111111111111^Jones/Simon ^1309101063510010000000306000000?</Track1>
+  <Track2>;4111111111111111=1309101420320192611?</Track2>
+  <Transaction_Approved>true</Transaction_Approved>
+  <Transaction_Error>0</Transaction_Error>
+  <Transaction_Tag>2516</Transaction_Tag>
+  <Transaction_Type>00</Transaction_Type>
+  <User_Name>Superman</User_Name>
+  <VerificationStr1>verified</VerificationStr1>
+  <VerificationStr2>6785</VerificationStr2>
+  <XID>x678</XID>
+  <ZipCode>10100</ZipCode>
+</TransactionResult>

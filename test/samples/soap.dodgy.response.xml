@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://secure2.e-xact.com/vplug-in/transaction/rpc-enc/" xmlns:types="http://secure2.e-xact.com/vplug-in/transaction/rpc-enc/encodedTypes" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <soap:Body soap:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+    <q1:ProcessResponse xmlns:q1="http://secure2.e-xact.com/vplug-in/transaction/rpc-enc/Response">
+      <ProcessResult href="#id1">
+      </ProcessResult>
+    </q1:ProcessResponse>
+    <types:TransactionResult id="id1" xsi:type="types:TransactionResult">
+      <ExactID xsi:type="xsd:string">AD0008-01</ExactID>
+      <Password xsi:nil="true"></Password>
+      <Transaction_Type xsi:type="xsd:string">00</Transaction_Type>
+      <DollarAmount xsi:type="xsd:string">10.13</DollarAmount>
+      <SurchargeAmount xsi:nil="true"></SurchargeAmount>
+      <Card_Number xsi:type="xsd:string">4111111111111111666666</Card_Number>
+      <Transaction_Tag xsi:type="xsd:string">2517</Transaction_Tag>
+      <Track1 xsi:nil="true"></Track1>
+      <Track2 xsi:nil="true"></Track2>
+      <PAN xsi:nil="true"></PAN>
+      <Authorization_Num xsi:type="xsd:string">ET3435</Authorization_Num>
+      <Expiry_Date xsi:type="xsd:string">1210</Expiry_Date>
+      <CardHoldersName xsi:type="xsd:string">Simon Brown Is Not A Really Long Name But This Is</CardHoldersName>
+      <VerificationStr1 xsi:nil="true"></VerificationStr1>
+      <VerificationStr2 xsi:nil="true"></VerificationStr2>
+      <CVD_Presence_Ind xsi:type="xsd:string">0</CVD_Presence_Ind>
+      <ZipCode xsi:nil="true"></ZipCode>
+      <Tax1Amount xsi:nil="true"></Tax1Amount>
+      <Tax1Number xsi:nil="true"></Tax1Number>
+      <Tax2Amount xsi:nil="true"></Tax2Amount>
+      <Tax2Number xsi:nil="true"></Tax2Number>
+      <Secure_AuthRequired xsi:nil="true"></Secure_AuthRequired>
+      <Secure_AuthResult xsi:nil="true"></Secure_AuthResult>
+      <Ecommerce_Flag xsi:type="xsd:string">0</Ecommerce_Flag>
+      <XID xsi:nil="true"></XID>
+      <CAVV xsi:nil="true"></CAVV>
+      <CAVV_Algorithm xsi:nil="true"></CAVV_Algorithm>
+      <Reference_No xsi:type="xsd:string">987987</Reference_No>
+      <Customer_Ref xsi:nil="true"></Customer_Ref>
+      <Reference_3 xsi:nil="true"></Reference_3>
+      <Language xsi:nil="true"></Language>
+      <Client_IP xsi:nil="true"></Client_IP>
+      <Client_Email xsi:nil="true"></Client_Email>
+      <User_Name xsi:nil="true"></User_Name>
+      <LogonMessage xsi:nil="true"></LogonMessage>
+      <Error_Number xsi:nil="true"></Error_Number>
+      <Error_Description xsi:nil="true"></Error_Description>
+      <Transaction_Error xsi:nil="true"></Transaction_Error>
+      <Transaction_Approved xsi:type="xsd:boolean">true</Transaction_Approved>
+      <EXact_Resp_Code xsi:type="xsd:string">00</EXact_Resp_Code>
+      <EXact_Message xsi:type="xsd:string">Transaction Normal</EXact_Message>
+      <Bank_Resp_Code xsi:type="xsd:string">000</Bank_Resp_Code>
+      <Bank_Message xsi:type="xsd:string">APPROVED</Bank_Message>
+      <Bank_Resp_Code_2 xsi:nil="true"></Bank_Resp_Code_2>
+      <SequenceNo xsi:type="xsd:string">259</SequenceNo>
+      <AVS xsi:nil="true"></AVS>
+      <CVV2 xsi:nil="true"></CVV2>
+      <Retrieval_Ref_No xsi:type="xsd:string">07203435</Retrieval_Ref_No>
+      <CAVV_Response xsi:type="xsd:string">0</CAVV_Response>
+      <MerchantName xsi:type="xsd:string">Paymentech Goods Buy and Sell(Calgary) 5300003</MerchantName>
+      <MerchantAddress xsi:type="xsd:string">4567 8th ave SE.</MerchantAddress>
+      <MerchantCity xsi:type="xsd:string">Calgary</MerchantCity>
+      <MerchantProvince xsi:type="xsd:string">Alabama</MerchantProvince>
+      <MerchantCountry xsi:type="xsd:string">United States</MerchantCountry>
+      <MerchantPostal xsi:type="xsd:string">V6B 2K4</MerchantPostal>
+      <MerchantURL xsi:nil="true"></MerchantURL>
+      <CTR xsi:type="xsd:string">
+======== TRANSACTION RECORD ========
+
+Goods Buy and Sell(Calgary)
+4567 8th ave SE.
+Calgary, AL V6B 2K4
+United States
+
+
+TYPE: Purchase
+
+ACCT: Visa  $10.13 USD
+
+CARD HOLDER : Simon Brown
+EXPIRY DATE : 10/12
+CARD NUMBER : ************1111
+TRANS. REF. : 987987
+DATE/TIME   : 20 Jul 08 18:34:35
+REFERENCE # : 001 259 M
+AUTHOR.#    : ET3435
+
+    Approved - Thank You 000
+
+
+
+
+====================================
+</CTR>
+    </types:TransactionResult>
+  </soap:Body>
+</soap:Envelope>

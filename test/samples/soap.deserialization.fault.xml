@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <soap:Fault>
+      <faultcode>soap:Client</faultcode>
+      <faultstring>Server was unable to read request. --&gt; There is an error in XML document (1, 406). --&gt; &lt;SendAndCommit xmlns='http://secure2.exact.com/vplug-in/transaction/rpc-enc/'&gt; was not expected.</faultstring>
+      <detail />
+    </soap:Fault>
+  </soap:Body> 
+</soap:Envelope>
