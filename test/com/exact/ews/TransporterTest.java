@@ -21,6 +21,9 @@ import java.security.KeyManagementException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
 
 /**
  * User: donch
@@ -196,11 +199,17 @@ public class TransporterTest extends TestCase {
   }
 
   protected Request getCreateRequest() {
+
     final Request request = new Request(TransactionType.Purchase);
     request.setAmount(10.0f);
     request.setCardholderName("James Brown");
     request.setCardNumber("4111111111111111");
-    request.setCardExpiryDate("0913");  // MMYY format
+
+    Calendar cal = Calendar.getInstance();
+    cal.add(Calendar.MONTH, 1);
+    SimpleDateFormat sdf = new SimpleDateFormat("MMYY") ;
+
+    request.setCardExpiryDate(sdf.format(cal.getTime()));
     
     request.setExactId(TestUtils.EmergisExactID);
     request.setPassword(TestUtils.EmergisPassword);
