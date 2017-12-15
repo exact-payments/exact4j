@@ -1,12 +1,10 @@
 package com.exact.ews.transaction;
 
-import junit.framework.TestCase;
-import junit.framework.Assert;
-
-import java.util.List;
-import java.util.Calendar;
-
 import com.exact.ews.transaction.enums.TransactionType;
+import junit.framework.TestCase;
+
+import java.util.Calendar;
+import java.util.List;
 
 /**
  * User: donch
@@ -15,15 +13,11 @@ import com.exact.ews.transaction.enums.TransactionType;
  */
 public class RequestTest extends TestCase {
 
-  public RequestTest(final String name)   {
-    super(name);
-  }
-
   public void testForMandatoryAttributes() {
     // set up basic request
     final Request r = new Request(TransactionType.Purchase);
     r.setCardNumber("4111111111111111");
-    r.setCardExpiryDate("0913");
+    r.setCardExpiryDate("0923");
     r.setCardholderName("Test User");
     r.setAmount(10.0f);
 
@@ -83,28 +77,40 @@ public class RequestTest extends TestCase {
 
 
     // ensure we don't accept dates in the past
-    final Calendar now = Calendar.getInstance();
-    final int month = now.get(Calendar.MONTH) + 1;  // +1 cause it returns 0 == Jan etc.
-    final int year = now.get(Calendar.YEAR) - 2000;
+    Calendar now = Calendar.getInstance();
+    now.add(Calendar.MONTH, 1);
 
     // one year ago
-    r.setCardExpiryDate(String.format("%02d%02d", month, year-1));
+    now.add(Calendar.YEAR, -1);
+
+    r.setCardExpiryDate(String.format("%02d%02d", now.get(Calendar.MONTH), now.get(Calendar.YEAR)-2000));
     assertFalse(r.isValid());
     assertTrue(r.getErrors().contains("Card Expiry Date must not be in the past."));
 
     // one month ago
-    r.setCardExpiryDate(String.format("%02d%02d", month-1, year));
+    now = Calendar.getInstance();
+    now.add(Calendar.MONTH, -1);
+
+    r.setCardExpiryDate(String.format("%02d%02d", now.get(Calendar.MONTH), now.get(Calendar.YEAR)-2000));
     assertFalse(r.isValid());
     assertTrue(r.getErrors().contains("Card Expiry Date must not be in the past."));
 
     // none of these should fail
-    r.setCardExpiryDate(String.format("%02d%02d", month, year));
+    now = Calendar.getInstance();
+    r.setCardExpiryDate(String.format("%02d%02d", now.get(Calendar.MONTH), now.get(Calendar.YEAR)-2000));
     assertTrue(r.isValid());
-    r.setCardExpiryDate(String.format("%02d%02d", month, year+1));
+    now.add(Calendar.YEAR, 1);
+
+    r.setCardExpiryDate(String.format("%02d%02d", now.get(Calendar.MONTH), now.get(Calendar.YEAR)-2000));
     assertTrue(r.isValid());
-    r.setCardExpiryDate(String.format("%02d%02d", month+1, year));
+
+    // one month from now
+    now = Calendar.getInstance();
+    now.add(Calendar.MONTH, 1);
+
+    r.setCardExpiryDate(String.format("%02d%02d", now.get(Calendar.MONTH), now.get(Calendar.YEAR)-2000));
     assertTrue(r.isValid());
-    r.setCardExpiryDate("0612");
+    r.setCardExpiryDate("0622");
     assertTrue(r.isValid());
   }
 
@@ -113,7 +119,7 @@ public class RequestTest extends TestCase {
     r.setExactId("A00049-01");
     r.setPassword("password");
     r.setCardholderName("Test User");
-    r.setCardExpiryDate("0913");
+    r.setCardExpiryDate("0923");
     r.setAmount(10.0f);
 
     r.setCardNumber(null);
@@ -158,7 +164,7 @@ public class RequestTest extends TestCase {
     // set up basic request
     final Request r = new Request(TransactionType.Purchase);
     r.setCardNumber("4111111111111111");
-    r.setCardExpiryDate("0913");
+    r.setCardExpiryDate("0923");
     r.setCardholderName("Test User");
     r.setAmount(10.0f);
     AVS avs = new AVS("1234567LOUGHEEDHIGHW", null, null, "902101234", null);
@@ -169,4 +175,28 @@ public class RequestTest extends TestCase {
     assertTrue(errors.isEmpty());
     assertEquals(r.getCardVerificationStr1(),  "1234567LOUGHEEDHIGHW|902101234");
   }
+
+  public void testClientEmailLength() {
+    // set up basic request
+    final Request r = new Request(TransactionType.Purchase);
+    r.setCardNumber("4111111111111111");
+    r.setCardExpiryDate("0923");
+    r.setCardholderName("Test User");
+    r.setAmount(10.0f);
+    r.setPassword("exactId");
+    r.setExactId("sekrit");
+
+    String longEmail = new String(new char[50]).replace("\0", "a") + "@test.com";
+    try {
+      r.setClientEmail(longEmail);
+      fail("clientEmail should have thrown");
+    }catch(IllegalArgumentException e) {
+
+    }
+    String maxEmail = new String(new char[41]).replace("\0", "a") + "@test.com"; // 50
+    r.setClientEmail(maxEmail);
+    List<String> errors = r.validate();
+    assertTrue(errors.isEmpty());
+  }
+
 }

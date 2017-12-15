@@ -378,7 +378,7 @@ class Validator
     final Calendar expD = Calendar.getInstance();
     expD.set(year, month, 1, 0, 0, 0);
 
-    if (!expD.after(now))
+    if (expD.before(now))
       return "Card Expiry Date must not be in the past.";
 
     return null;

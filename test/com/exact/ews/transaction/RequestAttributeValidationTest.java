@@ -79,9 +79,9 @@ public class RequestAttributeValidationTest {
       Assert.fail("Length should be OK.");
     }
 
-    // check too long
+    // check too long (over 50)
     try {
-      request.setClientEmail("1234567890123456789012345678901");
+      request.setClientEmail("12345678901234567890123456789011234567890123456789012345678901");
       Assert.fail("Length should have been too long.");
     } catch (IllegalArgumentException e) {
       // expected

@@ -393,8 +393,8 @@ public class Request {
   }
 
   public void setClientEmail(final String clientEmail) {
-    if (!Validator.isValidLength(clientEmail, 30))
-      throw new IllegalArgumentException("Request.setClientEmail(): Maximum length is 30 characters.");
+    if (!Validator.isValidLength(clientEmail, 50))
+      throw new IllegalArgumentException("Request.setClientEmail(): Maximum length is 50 characters.");
 
     this.clientEmail = clientEmail;
   }
