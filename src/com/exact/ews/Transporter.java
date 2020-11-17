@@ -201,7 +201,7 @@ public class Transporter {
         ((HttpsURLConnection)connection).setSSLSocketFactory(sslSocketFactory);
       }
     }
-    connection.setRequestProperty("User-Agent", "exact4j v2.0");
+    connection.setRequestProperty("User-Agent", "exact4j v2.1");
     connection.setRequestProperty("Authorization", "Basic "+encodedAuth);
     connection.setUseCaches(false);
     connection.setAllowUserInteraction(false);

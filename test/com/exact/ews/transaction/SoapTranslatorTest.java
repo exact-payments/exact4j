@@ -54,12 +54,7 @@ public class SoapTranslatorTest extends TestCase
       assertTrue(encoded.indexOf("<Transaction_Type>00</Transaction_Type>") != -1);
       assertTrue(encoded.indexOf("<Reference_No>987987</Reference_No>") != -1);
       assertTrue(encoded.indexOf("<Card_Number>4111111111111111</Card_Number>") != -1);
-
-      // and that ones we didn't specify are still there
-      final String expectedString = (System.getProperty("java.version").startsWith("1.6")) ?
-        "<SurchargeAmount/>" :
-        "<SurchargeAmount></SurchargeAmount>";
-      assertTrue(encoded.indexOf(expectedString) != -1);
+      assertTrue(encoded.indexOf("<SurchargeAmount/>") != -1);
     }
     catch (Exception e)
     {
@@ -143,8 +138,8 @@ public class SoapTranslatorTest extends TestCase
       assertTrue(encoded.indexOf("<Tax1Number>789</Tax1Number>") != -1);
       assertTrue(encoded.indexOf("<Tax2Amount>1.23</Tax2Amount>") != -1);
       assertTrue(encoded.indexOf("<Tax2Number>321</Tax2Number>") != -1);
-      assertTrue(encoded.indexOf("<Track1>%B4111111111111111^Jones/Simon ^1309101063510010000000306000000?</Track1>") != -1);
-      assertTrue(encoded.indexOf("<Track2>;4111111111111111=1309101420320192611?</Track2>") != -1);
+      assertTrue(encoded.indexOf("<Track1>%B4111111111111111^Jones/Simon ^2409101063510010000000306000000?</Track1>") != -1);
+      assertTrue(encoded.indexOf("<Track2>;4111111111111111=2409101420320192611?</Track2>") != -1);
       assertTrue(encoded.indexOf("<Transaction_Tag>5678</Transaction_Tag>") != -1);
       assertTrue(encoded.indexOf("<Transaction_Type>00</Transaction_Type>") != -1);
       assertTrue(encoded.indexOf("<User_Name>user name</User_Name>") != -1);
@@ -358,7 +353,7 @@ public class SoapTranslatorTest extends TestCase
       assertEquals("REF-123", req.getCustomerRef());
       assertEquals(CvdPresenceIndicator.NotSupported, req.getCvdPresenceIndicator());
       assertEquals(ECommerceFlag.UnknownMoto, req.getEcommerceFlag());
-      assertEquals("1210", req.getCardExpiryDate());
+      assertEquals("1224", req.getCardExpiryDate());
       assertEquals(Language.French, req.getLanguage());
       assertEquals("12345678900987654321", req.getPrimaryAccountNumber());
       assertEquals("AD0009-01", req.getExactId());

@@ -64,7 +64,7 @@ public class TransactionDetailsTest extends BaseTestCase
     assertEquals("############1111", response.getRequest().getCardNumber());
   }
 
-  public void testSupplyingAuthNumDecryptsCreditCardNumber() {
+  public void testSupplyingAuthNumDoesNotDecryptCreditCardNumber() {
     final Request origRequest = getRequestByCCNumber(TransactionType.Purchase);
     origRequest.setAmount(10.0f);
     origRequest.setReferenceNo("barry/jones&^%$&^%");

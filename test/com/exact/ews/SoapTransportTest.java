@@ -57,7 +57,7 @@ public class SoapTransportTest extends TransporterTest
       assertTrue(cr.getErrorDescription(), cr.isApproved());
       assertEquals("00", cr.getExactResponseCode());
 
-      Thread.sleep(10000);
+      Thread.sleep(2000);
 
       // now try finding the same transaction
       final Request request = getFindRequest(cr.getRequest().getTransactionTag());

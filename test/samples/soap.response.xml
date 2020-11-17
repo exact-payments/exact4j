@@ -17,7 +17,7 @@
       <Track2 xsi:nil="true"></Track2>
       <PAN xsi:nil="true"></PAN>
       <Authorization_Num xsi:type="xsd:string">ET3435</Authorization_Num>
-      <Expiry_Date xsi:type="xsd:string"1224/Expiry_Date>
+      <Expiry_Date xsi:type="xsd:string">1224</Expiry_Date>
       <CardHoldersName xsi:type="xsd:string">Simon Brown</CardHoldersName>
       <VerificationStr1 xsi:nil="true"></VerificationStr1>
       <VerificationStr2 xsi:nil="true"></VerificationStr2>

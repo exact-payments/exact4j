@@ -1,3 +1,9 @@
+Version 2.1
+-------------
+ - Updated transaction tags from int to long.
+ - Removed unsupported BatchQuery, BatchClose and TaggedUpdate transaction types.
+
+
 Version 2.0
 -------------
  - Added support for specifying a custom SSLSocketFactory for use with a given Transporter, thereby allowing you

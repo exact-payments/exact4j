@@ -30,20 +30,17 @@ public enum TransactionType
 	TaggedPurchase("30"),
 	TaggedPreAuth("31"),
 	TaggedPreAuthCompletion("32"),
-  TaggedVoid("33"),
-  TaggedRefund("34"),
-  TaggedOnlineDebitRefund("35"),
-  ReferencedVoid("36"),
-  TaggedUpdate("37"),
+  	TaggedVoid("33"),
+  	TaggedRefund("34"),
+  	TaggedOnlineDebitRefund("35"),
+  	ReferencedVoid("36"),
 	RecurringSeedPreAuth("40"),
 	RecurringSeedPurchase("41"),
 	IDebitPurchase("50"),
 	IDebitRefund("54"),
 	SecureStorage("60"),
 	SecureStorageEft("61"),
-  BatchQuery("80"),
-  BatchClose("81"),
-  TransactionDetails("CR");
+  	TransactionDetails("CR");
 
   // set up a mapping so we can get them back when decoding
   private static Map<String,TransactionType> itemByCode = new HashMap<String,TransactionType>();

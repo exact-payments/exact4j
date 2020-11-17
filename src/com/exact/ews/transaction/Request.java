@@ -23,7 +23,8 @@ public class Request {
   protected CvdPresenceIndicator cvdPresenceIndicator;
   protected Language language = Language.English;
   protected ECommerceFlag ecommerceFlag = null;
-  protected int transactionTag = 0, secureAuthRequired = 0, secureAuthResult = 0, cavvAlgorithm = 0;
+  protected long transactionTag = 0;
+  protected int  secureAuthRequired = 0, secureAuthResult = 0, cavvAlgorithm = 0;
   protected String exactId = "", password = "", cardNumber = "", track1 = "", track2 = "",
     primaryAccountNumber = "", authorizationNum = "", cardExpiryDate = "", cardholderName = "",
     cardVerificationStr1 = "", cardVerificationStr2 = "", tax1Number = "", tax2Number = "", xid = "", cavv = "",
@@ -96,13 +97,13 @@ public class Request {
   }
 
 
-  public int getTransactionTag() {
+  public long getTransactionTag() {
     return transactionTag;
   }
 
-  public void setTransactionTag(final int transactionTag) {
+  public void setTransactionTag(final long transactionTag) {
     if(transactionTag < 0)
-      throw new IllegalArgumentException("setTransactionTag(int): TransactionTag can not be negative.");
+      throw new IllegalArgumentException("setTransactionTag(long): TransactionTag can not be negative.");
 
     this.transactionTag = transactionTag;
   }

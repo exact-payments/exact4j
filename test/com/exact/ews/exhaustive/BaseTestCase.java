@@ -47,8 +47,8 @@ abstract class BaseTestCase extends TestCase
 
   protected Request getCredentialledRequest(final TransactionType type) {
     final Request req = new Request(type);
-    req.setExactId(TestUtils.EmergisExactID);
-    req.setPassword(TestUtils.EmergisPassword);
+    req.setExactId(TestUtils.ChaseExactID);
+    req.setPassword(TestUtils.ChasePassword);
 
     return req;
   }

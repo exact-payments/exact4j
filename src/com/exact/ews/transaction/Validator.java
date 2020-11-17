@@ -49,11 +49,7 @@ class Validator
       errors.add("Password has not been set.");
 
     // check for other mandatory fields based on the way in which the card number is supplied
-    if ((r.getTransactionType() == TransactionType.BatchQuery) ||
-        (r.getTransactionType() == TransactionType.BatchClose)) {
-      // do nothing as these transactions have nothing to validate 
-    }
-    else if (r.getTransactionType() == TransactionType.TransactionDetails) {
+    if (r.getTransactionType() == TransactionType.TransactionDetails) {
       // transaction_tag & auth_num mandatory
       if(r.getTransactionTag() < 1) {
         errors.add("Transaction Tag must be greater than 0.");
@@ -154,7 +150,7 @@ class Validator
     if(isBlank(r.getAuthorizationNum())) {
       errors.add("Authorization Number is required.");
     }
-    if((r.getAmount() <= 0) && (r.getTransactionType() != TransactionType.TaggedUpdate)) {
+    if(r.getAmount() <= 0) {
       errors.add("Amount is required.");
     }
     if(r.getTransactionTag() <= 0) {
@@ -296,8 +292,7 @@ class Validator
       (type == TransactionType.TaggedPreAuthCompletion) ||
       (type == TransactionType.TaggedVoid) ||
       (type == TransactionType.TaggedRefund) ||
-      (type == TransactionType.TaggedOnlineDebitRefund) ||
-      (type == TransactionType.TaggedUpdate));
+      (type == TransactionType.TaggedOnlineDebitRefund));
   }
 
   private static boolean isIDebit(final TransactionType type)

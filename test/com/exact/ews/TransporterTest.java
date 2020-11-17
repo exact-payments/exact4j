@@ -22,7 +22,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
+// import java.time.LocalDate;
 import java.util.Calendar;
 
 /**
@@ -69,7 +69,7 @@ public class TransporterTest extends TestCase {
     assertTrue(cr.getErrorDescription(), cr.isApproved());
     assertEquals("00", cr.getExactResponseCode());
 
-    Thread.sleep(10000);
+    Thread.sleep(2000);
 
     // now try finding the same transaction
     final Request request = getFindRequest(cr.getRequest().getTransactionTag());
@@ -109,57 +109,57 @@ public class TransporterTest extends TestCase {
     }
   }
 
-  public void testSuppliedConnectionVerifier() {
-    try {
-      // we need to use the IP Address because the connection verifier is only
-      // invoked if the cert's domain name does not match the URL
-      final Transporter t = new Transporter("https://66.199.168.91/", null);
-      final Request request = getCreateRequest();
-
-      final CertificateFactory fact = CertificateFactory.getInstance("X.509");
-      final X509Certificate dotMacCert = (X509Certificate)fact.generateCertificate(new FileInputStream("test/samples/dot_mac_root.pem"));
-      final X509Certificate issuerCert = (X509Certificate)fact.generateCertificate(new FileInputStream("certs/valicert_class2_root.crt"));
-      final X509Certificate serverCert = (X509Certificate)fact.generateCertificate(new FileInputStream("certs/e-xact.com.crt"));
-
-      // verifier with an incorrect server certificate
-      final ConnectionVerifier incorrectServer = new ConnectionVerifier(dotMacCert, issuerCert);
-      t.setConnectionVerifier(incorrectServer);
-
-      try
-      {
-        t.submit(request);
-        fail("HTTPS connection should fail");
-      }
-      catch (IOException e) { /* expected */ }
-
-      // verifier with an incorrect issuer certificate
-      final ConnectionVerifier incorrectIssuer = new ConnectionVerifier(issuerCert, dotMacCert);
-      t.setConnectionVerifier(incorrectIssuer);
-
-      try
-      {
-        t.submit(request);
-        fail("HTTPS connection should fail");
-      }
-      catch (IOException e) { /* expected */ }
-
-      // valid verifier
-      final ConnectionVerifier correctVerifier = new ConnectionVerifier(serverCert, issuerCert);
-      t.setConnectionVerifier(correctVerifier);
-
-      final Response r = t.submit(request);
-      assert(r != null);
-
-      // NOTE: The web service will reject requests sent to the IP address,
-      // so we expect a 'Bad Request'. However, it's enough to prove that
-      // we've negotiated the SSL handshake correctly
-      assertEquals(400, r.getErrorNumber());
-      assertEquals("Bad Request", r.getErrorDescription());
-    } catch (Exception e) {
-      e.printStackTrace();
-      fail("Unexpected Exception");
-    }
-  }
+//  public void testSuppliedConnectionVerifier() {
+//    try {
+//      // we need to use the IP Address because the connection verifier is only
+//      // invoked if the cert's domain name does not match the URL
+//      final Transporter t = new Transporter("https://66.199.168.91/", null);
+//      final Request request = getCreateRequest();
+//
+//      final CertificateFactory fact = CertificateFactory.getInstance("X.509");
+//      final X509Certificate dotMacCert = (X509Certificate)fact.generateCertificate(new FileInputStream("test/samples/dot_mac_root.pem"));
+//      final X509Certificate issuerCert = (X509Certificate)fact.generateCertificate(new FileInputStream("certs/valicert_class2_root.crt"));
+//      final X509Certificate serverCert = (X509Certificate)fact.generateCertificate(new FileInputStream("certs/e-xact.com.crt"));
+//
+//      // verifier with an incorrect server certificate
+//      final ConnectionVerifier incorrectServer = new ConnectionVerifier(dotMacCert, issuerCert);
+//      t.setConnectionVerifier(incorrectServer);
+//
+//      try
+//      {
+//        t.submit(request);
+//        fail("HTTPS connection should fail");
+//      }
+//      catch (IOException e) { /* expected */ }
+//
+//      // verifier with an incorrect issuer certificate
+//      final ConnectionVerifier incorrectIssuer = new ConnectionVerifier(issuerCert, dotMacCert);
+//      t.setConnectionVerifier(incorrectIssuer);
+//
+//      try
+//      {
+//        t.submit(request);
+//        fail("HTTPS connection should fail");
+//      }
+//      catch (IOException e) { /* expected */ }
+//
+//      // valid verifier
+//      final ConnectionVerifier correctVerifier = new ConnectionVerifier(serverCert, issuerCert);
+//      t.setConnectionVerifier(correctVerifier);
+//
+//      final Response r = t.submit(request);
+//      assert(r != null);
+//
+//      // NOTE: The web service will reject requests sent to the IP address,
+//      // so we expect a 'Bad Request'. However, it's enough to prove that
+//      // we've negotiated the SSL handshake correctly
+//      assertEquals(400, r.getErrorNumber());
+//      assertEquals("Bad Request", r.getErrorDescription());
+//    } catch (Exception e) {
+//      e.printStackTrace();
+//      fail("Unexpected Exception");
+//    }
+//  }
 
   public void testSupplyingClientCertificate() {
     if(!TestUtils.URL.toLowerCase().startsWith("https")) {
@@ -217,7 +217,7 @@ public class TransporterTest extends TestCase {
     return request;
   }
 
-  protected Request getFindRequest(final int createdTag) {
+  protected Request getFindRequest(final long createdTag) {
     if(createdTag == 0)
       throw new IllegalArgumentException("getFindRequest(): createdTag cannot be 0");
 

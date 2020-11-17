@@ -126,8 +126,8 @@ public class JsonTranslatorTest extends TestCase {
       assertTrue(encoded.indexOf("\"tax1_number\":\"789\"") != -1);
       assertTrue(encoded.indexOf("\"tax2_amount\":1.23") != -1);
       assertTrue(encoded.indexOf("\"tax2_number\":\"321\"") != -1);
-      assertTrue(encoded.indexOf("\"track1\":\"%B4111111111111111^Jones/Simon ^1309101063510010000000306000000?\"") != -1);
-      assertTrue(encoded.indexOf("\"track2\":\";4111111111111111=1309101420320192611?\"") != -1);
+      assertTrue(encoded.indexOf("\"track1\":\"%B4111111111111111^Jones/Simon ^2409101063510010000000306000000?\"") != -1);
+      assertTrue(encoded.indexOf("\"track2\":\";4111111111111111=2409101420320192611?\"") != -1);
       assertTrue(encoded.indexOf("\"transaction_tag\":5678") != -1);
       assertTrue(encoded.indexOf("\"transaction_type\":\"00\"") != -1);
       assertTrue(encoded.indexOf("\"user_name\":\"user name\"") != -1);

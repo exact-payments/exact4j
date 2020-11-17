@@ -148,7 +148,7 @@ class JsonCoder implements Coder {
     if(!cc_number.equals("null"))
       r.setCardNumber(cc_number);
 
-    r.setTransactionTag(json.optInt("transaction_tag"));
+    r.setTransactionTag(json.optLong("transaction_tag"));
     r.setTrack1(json.optString("track1"));
     r.setTrack2(json.optString("track2"));
     r.setPrimaryAccountNumber(json.optString("pan"));

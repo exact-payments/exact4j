@@ -30,7 +30,7 @@ a CTR</CTR>
   <ExactID>AD0009-01</ExactID>
   <EXact_Message>Transaction Normal</EXact_Message>
   <EXact_Resp_Code>00</EXact_Resp_Code>
-  <Expiry_Date1224/Expiry_Date>
+  <Expiry_Date>1224</Expiry_Date>
   <Language>4</Language>
   <LogonMessage>Processed by E-Xact</LogonMessage>
   <MerchantAddress>4567 8th ave SE.</MerchantAddress>
@@ -53,8 +53,8 @@ a CTR</CTR>
   <Tax1Number>987654</Tax1Number>
   <Tax2Amount>34.34</Tax2Amount>
   <Tax2Number>123456</Tax2Number>
-  <Track1>%B4111111111111111^Jones/Simon ^1309101063510010000000306000000?</Track1>
-  <Track2>;4111111111111111=1309101420320192611?</Track2>
+  <Track1>%B4111111111111111^Jones/Simon ^2409101063510010000000306000000?</Track1>
+  <Track2>;4111111111111111=2409101420320192611?</Track2>
   <Transaction_Approved>true</Transaction_Approved>
   <Transaction_Error>0</Transaction_Error>
   <Transaction_Tag>2516</Transaction_Tag>

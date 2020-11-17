@@ -19,11 +19,11 @@ in a real response from the web service.
       <SurchargeAmount xsi:type="xsd:string">11.12</SurchargeAmount>
       <Card_Number xsi:type="xsd:string">4111111111111111</Card_Number>
       <Transaction_Tag xsi:type="xsd:string">2516</Transaction_Tag>
-      <Track1 xsi:type="xsd:string">%B4111111111111111^Jones/Simon ^1309101063510010000000306000000?</Track1>
-      <Track2 xsi:type="xsd:string">;4111111111111111=1309101420320192611?</Track2>
+      <Track1 xsi:type="xsd:string">%B4111111111111111^Jones/Simon ^2409101063510010000000306000000?</Track1>
+      <Track2 xsi:type="xsd:string">;4111111111111111=2409101420320192611?</Track2>
       <PAN xsi:type="xsd:string">12345678900987654321</PAN>
       <Authorization_Num xsi:type="xsd:string">ET3434</Authorization_Num>
-      <Expiry_Date xsi:type="xsd:string"1224/Expiry_Date>
+      <Expiry_Date xsi:type="xsd:string">1224</Expiry_Date>
       <CardHoldersName xsi:type="xsd:string">Simon Brown</CardHoldersName>
       <VerificationStr1 xsi:type="xsd:string">verified</VerificationStr1>
       <VerificationStr2 xsi:type="xsd:string">6785</VerificationStr2>
